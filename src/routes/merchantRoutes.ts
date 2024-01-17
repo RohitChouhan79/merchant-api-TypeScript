@@ -13,13 +13,17 @@ router.get('/merchants/filter',filtermerchant);
 
 // post api/merchants
 router.post("/merchants",isAuthenticated, addmerchant)
-//post /api/merchants/:merchantid
-router.post("/merchants/:merchantid",isAuthenticated, editmerchant)
+
+
 
 //post  /api/merchants/Delete/:merchantid
 
 
 router.post("/merchants/Delete/:merchantid",isAuthenticated, deletemerchants)
+//post /api/merchants/:merchantid
+
+
+router.post("/merchants/:merchantid",isAuthenticated, editmerchant)
 // get /api/merchants/:merchantid
 router.get("/merchants/:merchantid",isAuthenticated,Detailmerchants)
 export=router;

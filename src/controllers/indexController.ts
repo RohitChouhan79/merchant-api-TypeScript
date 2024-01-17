@@ -12,7 +12,7 @@ export const merchantsignup=catchAsyncErrors(async(req:Request,res:Response,next
     console.log(req.body);
     const user = await new USER(req.body).save();
     res.json(user)
-    sendtokens(user,200,res)
+    sendtokens(user,200,res)    
 
 });
 
@@ -40,12 +40,12 @@ export const merchantsignin=catchAsyncErrors(async(req:Request,res:Response,next
     // if (!isMatch) return next(new Errorhandler("Wrong Password", 402))
 });
 
-export const merchantsignout= catchAsyncErrors(async (req, res, next) => {
+export const merchantsignout= catchAsyncErrors(async (req:Request,res:Response,next:NextFunction) => {
     res.clearCookie("token");
     res.json({ message: "Succesfully signout" })
 })
 
-export const merchantsession= catchAsyncErrors(async (req, res, next) => {
+export const merchantsession= catchAsyncErrors(async (req:Request,res:Response,next:NextFunction) => {
     res.json({
         authenticated: true,
         // user: req.user,

@@ -15,9 +15,8 @@ export const isAuthenticated = catchAsyncErrors(
     const JWT_SECRET_KEY:string=process.env.JWT_SECRET_KEY||"";
     try {
       const {id}= jwt.verify(token,JWT_SECRET_KEY) as {id:string};
-      const ids =id;
       req.id =  id ; 
-      res.json({ id, token });
+      // res.json({ id, token });
       next();
     } catch (error) {
       return next(new ErrorHandler('Invalid token. Please log in again.', 401));
